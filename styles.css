@@ -1,0 +1,141 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* =========================
+   GRID LAYOUT FOR MAIN STRUCTURE
+========================= */
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "navbar"
+        "main"
+        "footer";
+    grid-template-columns: 1fr;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+    grid-area: header;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* =========================
+   NAVIGATION (Flexbox)
+========================= */
+.navbar {
+    grid-area: navbar;
+    background-color: #444;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: orange;
+}
+
+/* =========================
+   MAIN CONTENT + SIDEBAR (Grid)
+========================= */
+.main-grid {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.content {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.sidebar {
+    background: white;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* =========================
+   FLEXBOX CARDS
+========================= */
+.card-container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.card {
+    background: #eee;
+    flex: 1; /* Equal width cards */
+    padding: 1rem;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0.8rem;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+========================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .main-grid {
+        grid-template-columns: 2fr 1fr; /* Slightly smaller content area */
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* Stack content and sidebar */
+    }
+
+    .card-container {
+        flex-direction: column; /* Stack cards vertically */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack nav links */
+        align-items: center;
+    }
+}
